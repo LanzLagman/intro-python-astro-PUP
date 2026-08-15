@@ -1,0 +1,197 @@
+# Computational and Data-driven Astrophysics: A Practical Python Workshop
+
+**PUP Physics Society Programming Seminar / Workshop**
+15 August 2026 · PUP College of Law, Ninoy Aquino Library and Learning Resources Center
+
+**Speaker:** Lanz Anthonee Avila Lagman, MSc
+PhD Data Science, University of the Philippines Diliman
+
+**Slide guide:** `workshop_overview.pdf` — the deck that runs alongside the session. It maps
+the physics to the notebooks and is released separately.
+
+---
+
+## No prior Python required
+
+Every notebook runs in Google Colab. Nothing to install, no setup, works on a laptop or a
+phone. Click a badge below and you are running.
+
+If you have never written a line of Python, start at Notebook 01 and type along.
+If you already know Python, skip to Notebook 03.
+
+---
+
+## Part 1 — Live workshop notebooks
+
+Worked through together during the session. Roughly 12–15 minutes each.
+
+| # | Notebook | What you can do afterwards | Colab |
+|---|---|---|---|
+| 01 | **Basic Setup and Astropy Fundamentals** | Compute real stellar properties with units that catch your mistakes | [![Open](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lanzlagman/intro-python-astro-PUP/blob/main/notebooks/01_setup_and_astropy_fundamentals.ipynb) |
+| 02 | **Downloading Datasets with astroquery** | Pull data from any astronomical archive | [![Open](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lanzlagman/intro-python-astro-PUP/blob/main/notebooks/02_downloading_datasets_astroquery.ipynb) |
+| 03 | **Solving ODEs with NumPy and SciPy** | Integrate any dynamical system, and know when not to trust it | [![Open](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lanzlagman/intro-python-astro-PUP/blob/main/notebooks/03_solving_odes_numpy_scipy.ipynb) |
+| 04 | **Data Visualization in Astronomy** | Build a figure that makes an argument, not just a plot | [![Open](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lanzlagman/intro-python-astro-PUP/blob/main/notebooks/04_data_visualization_astronomy.ipynb) |
+| 05 | **Traditional ML in Astrophysics** | Find structure nobody labelled, and score it honestly | [![Open](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lanzlagman/intro-python-astro-PUP/blob/main/notebooks/05_traditional_ml_astrophysics.ipynb) |
+| 06 | **Responsible Use of AI in Astrophysics** | Closing note. Read it. | [![Open](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lanzlagman/intro-python-astro-PUP/blob/main/notebooks/06_responsible_ai_astrophysics.ipynb) |
+
+### The narrative
+
+Astrophysics has two sources of data: you **download** it (NB02) or you **generate it from
+the physics** (NB03). NB04 looks at both. NB05 learns from both. NB01 gives you the
+vocabulary and NB06 is about not lying with any of it.
+
+The whole of Part 1 works one dataset: a Gaia cone search on the **Pleiades (M45)** —
+Carroll & Ostlie's own worked example of an open cluster (Fig. 13.16b). Notebook 02
+downloads it, Notebook 04 plots it, Notebook 05 clusters it.
+
+---
+
+## Part 2 — Advanced self-paced notebooks
+
+**Entry condition: you have worked through Notebooks 01–05.** That is the only prerequisite,
+and the live session is how you clear it.
+
+Four doors, deliberately different. Realistic expectation: complete **one**, maybe start a
+second. That is the intended outcome, not a shortfall.
+
+| | Notebook | Prereqs | Depth |
+|---|---|---|---|
+| A1 | **Hunting Open Clusters with Machine Learning** | 01–05 | Lowest barrier. Direct continuation of NB05. |
+| A2 | **Isochrone Fitting** | 01–05 + A1 | Cluster age, distance, metallicity, reddening. |
+| A3 | **Exoplanet Hunting** | 01–05 | Independent branch. TESS light curves, Box Least Squares. |
+| A4 | **Gravitational Wave Data Analysis** | 01–05 | Highest ceiling. GW150914 and the chirp. |
+
+*Part 2 notebooks are released separately.*
+
+---
+
+## Running locally instead of Colab
+
+```bash
+git clone https://github.com/lanzlagman/intro-python-astro-PUP.git
+cd intro-python-astro-PUP
+python -m venv .venv && source .venv/bin/activate    # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+jupyter lab
+```
+
+Run notebooks from the repository root so the relative `data/` paths resolve.
+
+---
+
+## Offline / bad-Wi-Fi mode
+
+Every network call in this repository is wrapped in `try / except` and falls back to cached
+data in `data/`. If the venue Wi-Fi fails, or forty people query ESA simultaneously and get
+throttled, **everything still runs**.
+
+To force offline mode, set this near the top of Notebook 02:
+
+```python
+TRY_LIVE_QUERY = False
+```
+
+### ⚠️ About the cached data
+
+`data/gaia_pleiades.csv` shipped with this repository is a **physically realistic
+simulation**, not real Gaia rows — it was generated by `scripts/make_synthetic_fallback.py`
+so that the repository works without network access. It reproduces the real cluster's
+parallax (~7.4 mas), proper motion (~+19.9, −45.5 mas/yr), main sequence and field
+contamination, so every teaching beat behaves correctly.
+
+**To replace it with genuine Gaia DR3 data**, run once on a machine with internet:
+
+```bash
+python scripts/cache_data.py
+```
+
+That overwrites both CSVs with real archive results. Do this before the event if you can.
+
+---
+
+## Repository layout
+
+```
+intro-python-astro-PUP/
+├── README.md
+├── workshop_overview.pdf       # slide guide for the live session
+├── requirements.txt            # loose floors, safe on Colab
+├── requirements-frozen.txt     # exact versions, for reproducing results
+├── LICENSE
+├── notebooks/                  # Part 1, outputs cleared - run these
+├── solutions/                  # Part 1 with exercises filled in and executed
+├── data/
+│   ├── gaia_pleiades.csv                 # cached cone search (see warning above)
+│   └── pleiades_members_published.csv    # membership list, ground truth for NB05
+└── scripts/
+    ├── cache_data.py                     # refresh the cache from the real archives
+    └── make_synthetic_fallback.py        # regenerate the simulated fallback
+```
+
+Look at `solutions/` **after** you have tried the exercises, not before.
+
+---
+
+## Carroll & Ostlie cross-reference
+
+Every demo problem in Part 1 comes from **Carroll, B. W. & Ostlie, D. A.,
+*An Introduction to Modern Astrophysics*, 2nd ed. (Pearson Addison-Wesley, 2007)**, and each
+notebook states its sections in a markdown cell before the code.
+
+| NB | Sections | Worked problems |
+|---|---|---|
+| 01 | §1.3, §3.1, §3.2, §3.4, §3.6 | **Problem 3.3** (Sirius), **Problem 3.9** (Dschubba, δ Sco) |
+| 02 | §1.3, §3.6, §8.2 (Fig. 8.13), §13.3 (Fig. 13.16b) | — |
+| 03 | §2.1 (Eq. 2.3), §2.3 (Eqs. 2.32, 2.35, 2.36, 2.37) | **Computer Problem 2.16**, **Problem 2.12** (Galilean moons) |
+| 04 | §3.2 (Eq. 3.3), §8.1 (Fig. 8.8), §8.2 (Figs. 8.13, 8.14), §13.3 (Figs. 13.17, 13.18) | **Problem 8.9(b)** (Saha) |
+| 05 | §8.1, §8.2, §13.3, §25.1 | — |
+| 06 | — | — |
+
+> **Note on numbering.** Some print runs are Pearson custom compilations that drop the
+> chapter prefix, so §3.2 may appear as "2 THE MAGNITUDE SCALE" and Eq. 3.17 as "(17)".
+> The mapping is exact; standard 2nd-edition numbering is used throughout this repository.
+
+---
+
+## Attribution and licence
+
+Workshop material is released under **CC BY-NC-SA 4.0** — see `LICENSE`.
+
+This workshop draws on these open resources, all **CC BY-NC-SA 4.0**. The share-alike
+condition propagates, which is why this repository carries the same licence:
+
+- **Pasha, I. & Agostino, C.**, *Python for Astronomers* · <https://prappleizer.github.io/>
+- **Zingale, M.**, *Tutorial on Computational Astrophysics* · <https://zingale.github.io/comp_astro_tutorial/>
+- **Rougier, N. P.**, *Scientific Visualization: Python + Matplotlib* · <https://github.com/rougier/scientific-visualization-book>
+- **Learn Astropy** · <https://learn.astropy.org/>
+
+Also recommended, and referenced in the notebooks:
+
+- **Ting, Y.-S. (2025)**, *Statistical Machine Learning for Astronomy* · arXiv:2506.12230
+- **Astro-330**, Scientific Computing in Astrophysics (Yale) · <http://Astro-330.github.io>
+- **astroML** · <http://www.astroml.org/astroML-notebooks/>
+
+### Required data acknowledgement
+
+If you publish anything using Gaia data pulled with these notebooks:
+
+> This work has made use of data from the European Space Agency (ESA) mission
+> [Gaia](https://www.cosmos.esa.int/gaia), processed by the Gaia Data Processing and
+> Analysis Consortium ([DPAC](https://www.cosmos.esa.int/web/gaia/dpac/consortium)).
+> Funding for the DPAC has been provided by national institutions, in particular the
+> institutions participating in the Gaia Multilateral Agreement.
+
+Please also cite Astropy, NumPy, SciPy, matplotlib and scikit-learn. Each publishes a
+preferred citation.
+
+---
+
+## Contact
+
+**Lanz Anthonee Avila Lagman, MSc**
+PhD Data Science, University of the Philippines Diliman
+GitHub: [@lanzlagman](https://github.com/lanzlagman) · LinkedIn: [lanz-anthonee-lagman](https://linkedin.com/in/lanz-anthonee-lagman)
+
+Issues and pull requests welcome. If a notebook breaks in a future library version, open an
+issue — a notebook that throws an import error in 2028 is worse than no notebook, because it
+teaches students the material is inaccessible rather than that the environment drifted.

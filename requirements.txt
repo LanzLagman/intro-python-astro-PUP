@@ -1,0 +1,18 @@
+# Computational and Data-driven Astrophysics: A Practical Python Workshop
+# PUP Physics Society, 15 August 2026
+#
+# Loose floors on purpose: these are all satisfied by a stock Google Colab
+# runtime, so `pip install -r requirements.txt` on Colab is a no-op rather
+# than a five-minute reinstall.
+#
+# For byte-identical reproduction of the numbers in solutions/, use
+# requirements-frozen.txt instead.
+
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+astropy>=5.3
+astroquery>=0.4.6
+scikit-learn>=1.3
+jupyterlab>=4.0

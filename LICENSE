@@ -1,0 +1,60 @@
+# Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
+**Computational and Data-driven Astrophysics: A Practical Python Workshop**
+Copyright (c) 2026 Lanz Anthonee Avila Lagman
+
+This work is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+
+Full legal text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+---
+
+## You are free to
+
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+## Under the following terms
+
+- **Attribution (BY)** — You must give appropriate credit, provide a link to the
+  license, and indicate if changes were made.
+- **NonCommercial (NC)** — You may not use the material for commercial purposes.
+- **ShareAlike (SA)** — If you remix, transform, or build upon the material, you
+  must distribute your contributions under the same license as the original.
+
+---
+
+## Why this licence
+
+This workshop adapts material from open educational resources that are themselves
+released under CC BY-NC-SA 4.0. The ShareAlike condition propagates to derivative
+works, so this repository carries the same terms:
+
+- Pasha, I. & Agostino, C., *Python for Astronomers*
+  https://prappleizer.github.io/
+- Zingale, M., *Tutorial on Computational Astrophysics*
+  https://zingale.github.io/comp_astro_tutorial/
+- Rougier, N. P., *Scientific Visualization: Python + Matplotlib*
+  https://github.com/rougier/scientific-visualization-book
+
+Free educational use — student workshops, university courses, self-study — is
+squarely within these terms. Paid training built on this material is not.
+
+---
+
+## What this licence does NOT cover
+
+**Carroll, B. W. & Ostlie, D. A., *An Introduction to Modern Astrophysics*, 2nd ed.**
+(Pearson Addison-Wesley, 2007) is a copyrighted commercial textbook and is **not**
+covered by this licence. This repository cites section numbers, equation numbers and
+problem numbers, and reimplements the physics in original code. It does not reproduce
+the text, figures, or problem statements beyond brief attributed quotation. Readers
+need their own copy.
+
+**Gaia data** is provided by ESA under its own terms and carries a mandatory
+acknowledgement requirement. See the README.
+
+**Third-party Python packages** (astropy, numpy, scipy, matplotlib, scikit-learn,
+astroquery) retain their own licences.
