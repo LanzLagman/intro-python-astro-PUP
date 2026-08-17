@@ -1,27 +1,33 @@
 # Computational and Data-driven Astrophysics: A Practical Python Workshop
 
 **PUP Physics Society Programming Seminar / Workshop**
-15 August 2026 · PUP College of Law, Ninoy Aquino Library and Learning Resources Center
+15 August 2026 · Online
 
 **Speaker:** Lanz Anthonee Avila Lagman, MSc
 PhD Data Science, University of the Philippines Diliman
 
-**Slide guide:** `workshop_overview.pdf` — the deck that runs alongside the session. It maps
+**Slide guide:** `workshop_overview.pdf`: the deck that ran alongside the session. It maps
 the physics to the notebooks and is released separately.
 
 ---
 
-## No prior Python required
+## About this repository
 
-Every notebook runs in Google Colab. Nothing to install, no setup, works on a laptop or a
-phone. Click a badge below and you are running.
+The live session ran last Saturday: a 12-15 minute overview per notebook, showing what
+Python can do and the shape of the research problems data-driven and computational
+astrophysics work on.
 
-If you have never written a line of Python, start at Notebook 01 and type along.
-If you already know Python, skip to Notebook 03.
+The notebooks have since been revised into **standalone coding templates and reference
+helpers**: self-contained patterns (archive queries, ODE integration, a clustering
+pipeline, a publication-ready figure) you can lift into your own project once you already
+know Python fundamentals.
+
+Still learning Python itself? Start with `notebooks/additional_readings.md` first, then
+come back here; these work far better as templates than as a first introduction.
 
 ---
 
-## Part 1 — Live workshop notebooks
+## Part 1: Live workshop notebooks
 
 Worked through together during the session. Roughly 12–15 minutes each.
 
@@ -40,28 +46,42 @@ Astrophysics has two sources of data: you **download** it (NB02) or you **genera
 the physics** (NB03). NB04 looks at both. NB05 learns from both. NB01 gives you the
 vocabulary and NB06 is about not lying with any of it.
 
-The whole of Part 1 works one dataset: a Gaia cone search on the **Pleiades (M45)** —
+The whole of Part 1 works one dataset: a Gaia cone search on the **Pleiades (M45)**,
 Carroll & Ostlie's own worked example of an open cluster (Fig. 13.16b). Notebook 02
 downloads it, Notebook 04 plots it, Notebook 05 clusters it.
 
 ---
 
-## Part 2 — Advanced self-paced notebooks
+## Part 2: The strategizing session
 
-**Entry condition: you have worked through Notebooks 01–05.** That is the only prerequisite,
-and the live session is how you clear it.
+There are no notebooks for Part 2, and that is the point. Notebooks 01–06 walked through a
+sequence somebody else had already decided. Part 2 is the opposite exercise: take a published
+paper (or your own research idea) and write, by hand, the coding plan you would need before
+writing any code: a six-section markdown template covering the claim, the data, the steps,
+the paper's unstated assumptions, what you expect to break, and how you would know if you were
+wrong.
 
-Four doors, deliberately different. Realistic expectation: complete **one**, maybe start a
-second. That is the intended outcome, not a shortfall.
+It ran as an open forum around three papers on open clusters, exoplanets and gravitational
+waves. Full details, the plan template, and the three paper picks are in
+[`notebooks/strategizing_session.md`](notebooks/strategizing_session.md).
 
-| | Notebook | Prereqs | Depth |
-|---|---|---|---|
-| A1 | **Hunting Open Clusters with Machine Learning** | 01–05 | Lowest barrier. Direct continuation of NB05. |
-| A2 | **Isochrone Fitting** | 01–05 + A1 | Cluster age, distance, metallicity, reddening. |
-| A3 | **Exoplanet Hunting** | 01–05 | Independent branch. TESS light curves, Box Least Squares. |
-| A4 | **Gravitational Wave Data Analysis** | 01–05 | Highest ceiling. GW150914 and the chirp. |
+### `demo-workshop/`: the code-along output from that session
 
-*Part 2 notebooks are released separately.*
+`demo-workshop/init_plan.md` is the plan the speaker wrote live during Part 2, targeting a
+Gaia DR3 open-cluster detection and characterization project
+([Liu et al. 2025](https://arxiv.org/pdf/2504.08179)). It is a worked example of the template
+above, not a polished notebook. It is deliberately left as a planning artifact.
+
+Read the outline structurally, not as a table of contents: each **Roman-numeral heading**
+(I, II, III…) marks a notebook that would eventually get built, and the lettered/numbered
+**subsections underneath it** are the sections that notebook would contain. So "I. Download
+Gaia DR3 Dataset Sample" is notebook-to-be-written #1, and "A. Prepare ADQL Query" /
+"B. Run ADQL Query" / "C. Save Query Results" are its planned sections, the same
+decompose-before-you-code habit Notebooks 01–06 tried to build, applied to a real research
+problem rather than a teaching example.
+
+`demo-workshop/Data/` holds the `Input/` and `Output/` scratch folders used while working
+through that plan.
 
 ---
 
@@ -94,7 +114,7 @@ TRY_LIVE_QUERY = False
 ### ⚠️ About the cached data
 
 `data/gaia_pleiades.csv` shipped with this repository is a **physically realistic
-simulation**, not real Gaia rows — it was generated by `scripts/make_synthetic_fallback.py`
+simulation**, not real Gaia rows. It was generated by `scripts/make_synthetic_fallback.py`
 so that the repository works without network access. It reproduces the real cluster's
 parallax (~7.4 mas), proper motion (~+19.9, −45.5 mas/yr), main sequence and field
 contamination, so every teaching beat behaves correctly.
@@ -105,7 +125,8 @@ contamination, so every teaching beat behaves correctly.
 python scripts/cache_data.py
 ```
 
-That overwrites both CSVs with real archive results. Do this before the event if you can.
+That overwrites both CSVs with real archive results. Do this before running the notebooks for
+real research use, if you can.
 
 ---
 
@@ -118,8 +139,15 @@ intro-python-astro-PUP/
 ├── requirements.txt            # loose floors, safe on Colab
 ├── requirements-frozen.txt     # exact versions, for reproducing results
 ├── LICENSE
-├── notebooks/                  # Part 1, outputs cleared - run these
-├── solutions/                  # Part 1 with exercises filled in and executed
+├── notebooks/                       # Part 1, outputs cleared - run these
+│   ├── 01-06 ...ipynb
+│   ├── strategizing_session.md      # Part 2: the plan template and paper picks
+│   └── additional_readings.md       # further reading, indexed per notebook
+├── solutions/                  # Part 1, Notebooks 01-05 with exercises filled in and executed
+│                                #   (NB06 has no exercises, so no solutions copy exists for it)
+├── demo-workshop/              # speaker's own Part 2 code-along output
+│   ├── init_plan.md            # the coding plan written live during the session
+│   └── Data/                   # Input/ and Output/ scratch data for that plan
 ├── data/
 │   ├── gaia_pleiades.csv                 # cached cone search (see warning above)
 │   └── pleiades_members_published.csv    # membership list, ground truth for NB05
@@ -141,11 +169,11 @@ notebook states its sections in a markdown cell before the code.
 | NB | Sections | Worked problems |
 |---|---|---|
 | 01 | §1.3, §3.1, §3.2, §3.4, §3.6 | **Problem 3.3** (Sirius), **Problem 3.9** (Dschubba, δ Sco) |
-| 02 | §1.3, §3.6, §8.2 (Fig. 8.13), §13.3 (Fig. 13.16b) | — |
+| 02 | §1.3, §3.6, §8.2 (Fig. 8.13), §13.3 (Fig. 13.16b) | n/a |
 | 03 | §2.1 (Eq. 2.3), §2.3 (Eqs. 2.32, 2.35, 2.36, 2.37) | **Computer Problem 2.16**, **Problem 2.12** (Galilean moons) |
 | 04 | §3.2 (Eq. 3.3), §8.1 (Fig. 8.8), §8.2 (Figs. 8.13, 8.14), §13.3 (Figs. 13.17, 13.18) | **Problem 8.9(b)** (Saha) |
-| 05 | §8.1, §8.2, §13.3, §25.1 | — |
-| 06 | — | — |
+| 05 | §8.1, §8.2, §13.3, §25.1 | n/a |
+| 06 | n/a | n/a |
 
 > **Note on numbering.** Some print runs are Pearson custom compilations that drop the
 > chapter prefix, so §3.2 may appear as "2 THE MAGNITUDE SCALE" and Eq. 3.17 as "(17)".
@@ -155,7 +183,7 @@ notebook states its sections in a markdown cell before the code.
 
 ## Attribution and licence
 
-Workshop material is released under **CC BY-NC-SA 4.0** — see `LICENSE`.
+Workshop material is released under **CC BY-NC-SA 4.0**; see `LICENSE`.
 
 This workshop draws on these open resources, all **CC BY-NC-SA 4.0**. The share-alike
 condition propagates, which is why this repository carries the same licence:
@@ -184,6 +212,13 @@ If you publish anything using Gaia data pulled with these notebooks:
 Please also cite Astropy, NumPy, SciPy, matplotlib and scikit-learn. Each publishes a
 preferred citation.
 
+### AI Disclosure
+
+Generative AI tools assisted in drafting and revising portions of the notebook content and
+this documentation, including code comments, explanatory text and structural suggestions.
+All code was written, run and checked against the cited textbook sections and archive
+schemas before inclusion. Any errors that remain are the author's, not the tool's.
+
 ---
 
 ## Contact
@@ -193,5 +228,5 @@ PhD Data Science, University of the Philippines Diliman
 GitHub: [@lanzlagman](https://github.com/lanzlagman) · LinkedIn: [lanz-anthonee-lagman](https://linkedin.com/in/lanz-anthonee-lagman)
 
 Issues and pull requests welcome. If a notebook breaks in a future library version, open an
-issue — a notebook that throws an import error in 2028 is worse than no notebook, because it
+issue: a notebook that throws an import error in 2028 is worse than no notebook, because it
 teaches students the material is inaccessible rather than that the environment drifted.
