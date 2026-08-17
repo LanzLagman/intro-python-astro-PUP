@@ -163,23 +163,39 @@ Look at `solutions/` **after** you have tried the exercises, not before.
 
 ## Carroll & Ostlie cross-reference
 
-Every demo problem in Part 1 comes from **Carroll, B. W. & Ostlie, D. A.,
-*An Introduction to Modern Astrophysics*, 2nd ed. (Pearson Addison-Wesley, 2007)**, and each
-notebook states its sections in a markdown cell before the code.
+Every demo problem in Part 1 comes from **Carroll, B. W. & Ostlie, D. A., *An Introduction to
+Modern Astrophysics*, 2nd ed. (Pearson Addison-Wesley, 2007)**, and each notebook states its
+sections in a markdown cell before the code.
 
-| NB | Sections | Worked problems |
-|---|---|---|
-| 01 | §1.3, §3.1, §3.2, §3.4, §3.6 | **Problem 9, p.94** (Dschubba, δ Sco) |
-| 02 | §1.3, §3.6, §8.2, §13.3 | n/a |
-| 03 | §2.1, §2.3 | Parts 4 and 6, adapted from the chapter problem set |
-| 04 | §3.2, §3.6, §8.2, §13.3 | n/a |
-| 05 | §8.1, §8.2, §13.3, §25.1 | n/a |
-| 06 | n/a | n/a |
+**Notebook 01** draws on §1.3 *Positions on the Celestial Sphere*, §3.1 *Stellar Parallax*,
+§3.2 *The Magnitude Scale*, §3.4 *Blackbody Radiation* and §3.6 *The Color Index*. Its worked
+exercise is **Problem 9** of the Chapter 3 problem set, modelling Dschubba (δ Sco) as a
+spherical blackbody. **Notebook 02** revisits §1.3 and §3.6 alongside §8.2 *The
+Hertzsprung–Russell Diagram* and §13.3 *Stellar Clusters*. **Notebook 03** works from §2.1
+*Elliptical Orbits* and §2.3 *Kepler's Laws Derived*; its Parts 4 and 6 are adapted from that
+chapter's problem set rather than reproducing a numbered problem. **Notebook 04** uses §3.2,
+§3.6, §8.2 and §13.3, and **Notebook 05** uses §8.1 *The Formation of Spectral Lines*, §8.2,
+§13.3 and §25.1 *The Hubble Sequence*. Notebook 06 cites no textbook sections.
+
+| Section | Page |
+|---|---|
+| §1.3 Positions on the Celestial Sphere | 14 |
+| §2.1 Elliptical Orbits | 31 |
+| §2.3 Kepler's Laws Derived | 47 |
+| §3.1 Stellar Parallax | 69 |
+| §3.2 The Magnitude Scale | 72 |
+| §3.4 Blackbody Radiation | 80 |
+| §3.6 The Color Index | 87 |
+| Problem 9 (Dschubba, δ Sco) | 94 |
+| §8.1 The Formation of Spectral Lines | 230 |
+| §8.2 The Hertzsprung–Russell Diagram | 247 |
+| §13.3 Stellar Clusters | 520 |
+| §25.1 The Hubble Sequence | 956 |
 
 > **Note on numbering.** Some print runs are Pearson reprints that assemble the book chapter
-> by chapter and print chapters without their numbers, so §3.1 appears as plain "1",
-> equation 3.6 as "(6)", and figure 1.13 as "FIGURE 13". Navigate by chapter title rather
-> than by chapter number. Standard 2nd-edition numbering is used throughout this repository.
+> by chapter and print chapters without their numbers, so §3.1 appears as plain "1", equation
+> 3.6 as "(6)", and figure 1.13 as "FIGURE 13". Navigate by chapter title rather than by
+> chapter number. Standard 2nd-edition numbering is used throughout this repository.
 
 ---
 
