@@ -160,27 +160,6 @@ Look at `solutions/` **after** you have tried the exercises, not before.
 
 ---
 
-## Carroll & Ostlie cross-reference
-
-Every demo problem in Part 1 comes from **Carroll, B. W. & Ostlie, D. A.,
-*An Introduction to Modern Astrophysics*, 2nd ed. (Pearson Addison-Wesley, 2007)**, and each
-notebook states its sections in a markdown cell before the code.
-
-| NB | Sections | Worked problems |
-|---|---|---|
-| 01 | §1.3, §3.1, §3.2, §3.4, §3.6 | **Problem 3.3** (Sirius), **Problem 3.9** (Dschubba, δ Sco) |
-| 02 | §1.3, §3.6, §8.2 (Fig. 8.13), §13.3 (Fig. 13.16b) | n/a |
-| 03 | §2.1 (Eq. 2.3), §2.3 (Eqs. 2.32, 2.35, 2.36, 2.37) | **Computer Problem 2.16**, **Problem 2.12** (Galilean moons) |
-| 04 | §3.2 (Eq. 3.3), §8.1 (Fig. 8.8), §8.2 (Figs. 8.13, 8.14), §13.3 (Figs. 13.17, 13.18) | **Problem 8.9(b)** (Saha) |
-| 05 | §8.1, §8.2, §13.3, §25.1 | n/a |
-| 06 | n/a | n/a |
-
-> **Note on numbering.** Some print runs are Pearson custom compilations that drop the
-> chapter prefix, so §3.2 may appear as "2 THE MAGNITUDE SCALE" and Eq. 3.17 as "(17)".
-> The mapping is exact; standard 2nd-edition numbering is used throughout this repository.
-
----
-
 ## Attribution and licence
 
 Workshop material is released under **CC BY-NC-SA 4.0**; see `LICENSE`.
